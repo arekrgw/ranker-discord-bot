@@ -1,0 +1,54 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "f00bba76-2726-469d-839c-60d8b3cf21a5",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "ranking": {
+      "name": "ranking",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ranked_user_id": {
+          "name": "ranked_user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ranking_user_id": {
+          "name": "ranking_user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

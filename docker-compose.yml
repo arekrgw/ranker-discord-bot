@@ -1,0 +1,8 @@
+services:
+  bot:
+    volumes:
+      - ./db:/app/db
+    build: .
+    restart: always
+    env_file:
+      - ./.env.docker
