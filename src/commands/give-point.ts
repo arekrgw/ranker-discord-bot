@@ -33,6 +33,7 @@ export default {
   execute: roleGuardMiddleware([canGivePoints])(
     async (interaction: ChatInputCommandInteraction<"cached">) => {
       try {
+        interaction.deferReply({ ephemeral: true });
         const user = interaction.options.get("user");
         const reason = interaction.options.get("reason");
 
@@ -101,12 +102,11 @@ export default {
           embeds: success(
             `You have given <@${user.user.id}> point for \`${reason.value}\``
           ),
-          ephemeral: true,
         });
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         interaction.reply({
-          content: "Something unexpected happened",
+          embeds: error(),
           ephemeral: true,
         });
       }

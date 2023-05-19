@@ -156,10 +156,10 @@ export default {
           ),
           ephemeral: true,
         });
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         interaction.reply({
-          content: "Something unexpected happened",
+          embeds: error(),
           ephemeral: true,
         });
       }

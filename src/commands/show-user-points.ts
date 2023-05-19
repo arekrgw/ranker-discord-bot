@@ -79,10 +79,10 @@ export default {
           embeds: [buildSingleUserEmbeds(user.user, points, range)],
           ephemeral: true,
         });
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         interaction.reply({
-          content: "Something unexpected happened",
+          embeds: error(),
           ephemeral: true,
         });
       }

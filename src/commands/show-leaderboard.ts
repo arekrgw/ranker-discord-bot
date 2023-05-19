@@ -71,10 +71,10 @@ export default {
           embeds: leaderboardEmbed(points, range),
           ephemeral: priv,
         });
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         interaction.reply({
-          content: "Something unexpected happened",
+          embeds: error(),
           ephemeral: true,
         });
       }

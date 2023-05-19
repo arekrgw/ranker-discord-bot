@@ -9,6 +9,7 @@ import {
   respondWhenInvalid,
 } from "../utils/date-format";
 import { success } from "../responses/success";
+import { error } from "../responses/error";
 
 export default {
   data: new SlashCommandBuilder()
@@ -80,10 +81,10 @@ export default {
           }),
           ephemeral: true,
         });
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         interaction.reply({
-          content: "Something unexpected happened",
+          embeds: error(),
           ephemeral: true,
         });
       }
