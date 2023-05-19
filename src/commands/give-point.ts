@@ -33,7 +33,6 @@ export default {
   execute: roleGuardMiddleware([canGivePoints])(
     async (interaction: ChatInputCommandInteraction<"cached">) => {
       try {
-        interaction.deferReply({ ephemeral: true });
         const user = interaction.options.get("user");
         const reason = interaction.options.get("reason");
 
