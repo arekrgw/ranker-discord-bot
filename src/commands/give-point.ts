@@ -80,13 +80,13 @@ export default {
           .limit(1)
           .all();
 
-        // if (lastRating.length > 0) {
-        //   interaction.reply({
-        //     embeds: error("You have already gave point to someone today"),
-        //     ephemeral: true,
-        //   });
-        //   return;
-        // }
+        if (lastRating.length > 0) {
+          interaction.reply({
+            embeds: error("You have already gave point to someone today"),
+            ephemeral: true,
+          });
+          return;
+        }
 
         db.insert(ranking)
           .values({
