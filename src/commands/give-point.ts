@@ -74,6 +74,7 @@ export default {
           .where(
             and(
               eq(ranking.rankedUserId, user.user.id),
+              eq(ranking.rankingUserId, interaction.user.id),
               gte(ranking.createdAt, DateTime.utc().startOf("day").toMillis())
             )
           )
@@ -83,7 +84,7 @@ export default {
         if (lastRatingForUser.length > 0) {
           interaction.reply({
             embeds: error(
-              `<@${user.user.id}> has already received a point today`
+              `You have already given point to <@${user.user.id}> today`
             ),
             ephemeral: true,
           });
