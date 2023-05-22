@@ -68,21 +68,23 @@ export default {
           return;
         }
 
-        const lastRating = db
+        const lastRatingForUser = db
           .select()
           .from(ranking)
           .where(
             and(
-              eq(ranking.rankingUserId, interaction.user.id),
+              eq(ranking.rankedUserId, user.user.id),
               gte(ranking.createdAt, DateTime.utc().startOf("day").toMillis())
             )
           )
           .limit(1)
           .all();
 
-        if (lastRating.length > 0) {
+        if (lastRatingForUser.length > 0) {
           interaction.reply({
-            embeds: error("You have already gave point to someone today"),
+            embeds: error(
+              `<@${user.user.id}> has already received a point today`
+            ),
             ephemeral: true,
           });
           return;
