@@ -102,7 +102,7 @@ export default {
 
         interaction.reply({
           embeds: success(
-            `<@${interaction.user.id}> has given <@${user.user.id}> point for \`${reason.value}\``
+            `<@${interaction.user.id}> has given <@${user.user.id}> point for "${reason.value}"`
           ),
         });
       } catch (err) {
